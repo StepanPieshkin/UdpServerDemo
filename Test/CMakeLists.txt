@@ -1,0 +1,12 @@
+enable_testing()
+find_package(gtest CONFIG REQUIRED)
+include_directories(${gtest_SOURCE_DIR})
+
+file(GLOB test-sources "*_test.cxx")
+foreach(file-path ${test-sources})
+    string( REPLACE ".cxx" "" file-path-without-ext ${file-path} )
+    get_filename_component(file-name ${file-path-without-ext} NAME)
+    add_executable( ${file-name} ${file-path})
+    target_link_libraries(${file-name} PUBLIC GTest::gtest GTest::gtest_main)
+    add_test(NAME "test-${file-name}" COMMAND ${file-name})
+endforeach()
