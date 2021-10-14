@@ -72,7 +72,7 @@ int main(int argc, char * argv[])
 	// Create dispatcher
 	auto dispatcher = demo::static_dispatcher(threadPool.get_executor(), recorder);
 
-	// Start TCP server
+	// Start server
 	auto demoServer = demo::udp_server(dispatcher,
 		{ boost::asio::ip::make_address_v4(address), static_cast<boost::asio::ip::port_type>(port) },
 		ioThreadCount);
