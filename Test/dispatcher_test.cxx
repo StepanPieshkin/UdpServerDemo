@@ -49,7 +49,7 @@ TEST(Dispatch, static_dispatcher_test)
 
 	for (size_t i = 0; i < messageCount; ++i)
 	{
-		// Check message size (it should be greated that input message)
+		// Check message size (it should be greater than input message)
 		EXPECT_LT(std::size(inputData[i]), std::size(test_recorder._messages[i]));
 
 		// Compare data
